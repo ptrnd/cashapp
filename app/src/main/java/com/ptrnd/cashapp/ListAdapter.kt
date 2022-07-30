@@ -17,10 +17,12 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.DetailViewHolder>() {
 //            val currentItem = flowList[position]
             with(binding){
                 if (keyFlow.tipe_flow == "Pemasukan"){
-                    nominalFlow.text = keyFlow.pemasukan.toString()
+                    var isiPemasukan = keyFlow.pemasukan.toString()
+                    nominalFlow.text = "[+] Rp. $isiPemasukan"
                     gambarFlow.setImageResource(R.drawable.income_arrow_icon)
                 } else {
-                    nominalFlow.text = keyFlow.pengeluaran.toString()
+                    var isiPengeluaran = keyFlow.pengeluaran.toString()
+                    nominalFlow.text = "[-] Rp. $isiPengeluaran"
                     gambarFlow.setImageResource(R.drawable.outcome_arrow_icon)
                 }
                 keteranganFlow.text = keyFlow.keterangan.toString()
@@ -34,7 +36,6 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.DetailViewHolder>() {
         val binding = FlowCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return DetailViewHolder(binding)
 //        return DetailViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.flow_card, parent, false))
-
     }
 
     override fun getItemCount(): Int {

@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 
 class FlowViewModel(application: Application): AndroidViewModel(application) {
 
-//    val readAllData: LiveData<List<Flow>>
     private val repository: FlowRepository
 
     //inisialisasi isi repository

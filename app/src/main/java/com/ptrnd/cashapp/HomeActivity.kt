@@ -12,7 +12,6 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var mFlowViewModel: FlowViewModel
-    private var flowList = ArrayList<Flow>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +21,9 @@ class HomeActivity : AppCompatActivity() {
 
         mFlowViewModel = ViewModelProvider(this).get(FlowViewModel::class.java)
 
-        binding.tvPemasukan.setText("Rp. ")
         binding.tvPengeluaran.setText("Rp. ")
+        uangMasuk()
+        uangKeluar()
 
         binding.btnPemasukan.setOnClickListener {
             val intent = Intent(this, PemasukanActivity::class.java)
@@ -47,10 +47,23 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun uangMasuk() {
-//        flowList.addAll(mFlowViewModel.readtipeFlowVM("Pemasukan"))
+        mFlowViewModel.readtipeFlowVM("Pemasukan").observe(this) {
+            var total = 0.0f
+            for (item in it) {
+                total += item.pemasukan
+            }
+            binding.tvPemasukan.setText("Rp. $total")
+        }
+
     }
 
-    private fun uangKeluar() {
-
+    private fun uangKeluar(){
+        mFlowViewModel.readtipeFlowVM("Pengeluaran").observe(this) {
+            var total = 0.0f
+            for (item in it) {
+                total += item.pengeluaran
+            }
+            binding.tvPengeluaran.setText("Rp. $total")
+        }
     }
 }

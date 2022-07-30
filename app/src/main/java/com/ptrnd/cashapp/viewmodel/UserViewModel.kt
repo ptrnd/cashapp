@@ -10,7 +10,7 @@ import com.ptrnd.cashapp.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SettingViewModel(application: Application): AndroidViewModel(application) {
+class UserViewModel(application: Application): AndroidViewModel(application) {
 
     private val readAlldata:LiveData<List<User>>
     private val repository:UserRepository
@@ -18,7 +18,7 @@ class SettingViewModel(application: Application): AndroidViewModel(application) 
     init {
         val userDao = CashAppDatabase.getDatabase(application).userDao()
         repository = UserRepository(userDao)
-        readAlldata = repository.readAllData
+        readAlldata = repository.readAllData()
     }
 
     fun addUser(user: User){
@@ -28,4 +28,5 @@ class SettingViewModel(application: Application): AndroidViewModel(application) 
         }
     }
 
+    fun readSpecificUserVM(username: String, password: String) = repository.readSpecificUserRepo(username, password)
 }
