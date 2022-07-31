@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.ptrnd.cashapp.data.Flow
 import com.ptrnd.cashapp.databinding.ActivityHomeBinding
 import com.ptrnd.cashapp.viewmodel.FlowViewModel
+import java.text.NumberFormat
+import java.util.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -52,7 +54,9 @@ class HomeActivity : AppCompatActivity() {
             for (item in it) {
                 total += item.pemasukan
             }
-            binding.tvPemasukan.setText("Rp. $total")
+            val numberFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+            val rupiah = numberFormat.format(total).toString()
+            binding.tvPemasukan.setText(rupiah)
         }
 
     }
@@ -63,7 +67,9 @@ class HomeActivity : AppCompatActivity() {
             for (item in it) {
                 total += item.pengeluaran
             }
-            binding.tvPengeluaran.setText("Rp. $total")
+            val numberFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+            val rupiah = numberFormat.format(total).toString()
+            binding.tvPengeluaran.setText(rupiah)
         }
     }
 }

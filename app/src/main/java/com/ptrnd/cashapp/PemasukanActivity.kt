@@ -1,17 +1,20 @@
 package com.ptrnd.cashapp
 
 import android.app.DatePickerDialog
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.ptrnd.cashapp.data.Flow
 import com.ptrnd.cashapp.databinding.ActivityPemasukanBinding
 import com.ptrnd.cashapp.viewmodel.FlowViewModel
 import kotlinx.android.synthetic.main.activity_pemasukan.*
 import kotlinx.android.synthetic.main.flow_card.*
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -91,6 +94,4 @@ class PemasukanActivity : AppCompatActivity() {
                 TextUtils.isEmpty(tipe) &&
                 TextUtils.isEmpty(keterangan))
     }
-
-
 }

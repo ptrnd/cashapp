@@ -14,7 +14,15 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.readSpecificUser(username, password)
     }
 
+    fun readUserByIdRepo(id_user: Int): LiveData<List<User>>{
+        return userDao.readUserById(id_user)
+    }
+
     suspend fun addUser(user: User){
         userDao.addUser(user)
+    }
+
+    fun updateUserRepo(user: User){
+        userDao.updateUser(user)
     }
 }

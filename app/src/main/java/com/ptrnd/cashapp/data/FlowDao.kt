@@ -15,6 +15,6 @@ interface FlowDao {
     @Query("SELECT * FROM flow ORDER BY tanggal ASC")
     fun readAllData(): LiveData<List<Flow>>
 
-    @Query("SELECT * FROM flow WHERE tipe_flow = :tipe ORDER BY tanggal ASC")
+    @Query("SELECT * FROM flow WHERE tipe_flow = :tipe AND tanggal > date('now', '-1 months') GROUP BY tanggal ORDER BY tanggal ASC")
     fun readFlowTipe(tipe: String): LiveData<List<Flow>>
 }

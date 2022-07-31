@@ -1,8 +1,10 @@
 package com.ptrnd.cashapp.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ptrnd.cashapp.data.CashAppDatabase
 import com.ptrnd.cashapp.data.User
@@ -21,6 +23,10 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         readAlldata = repository.readAllData()
     }
 
+    fun readSpecificUserVM(username: String, password: String) = repository.readSpecificUserRepo(username, password)
+
+    fun readUserByIdVM(id_user: Int) = repository.readUserByIdRepo(id_user)
+
     fun addUser(user: User){
         // menjalankan code di dalam background aplikasi
         viewModelScope.launch(Dispatchers.IO){
@@ -28,5 +34,9 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun readSpecificUserVM(username: String, password: String) = repository.readSpecificUserRepo(username, password)
+    fun updateUserVM(user: User){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateUserRepo(user)
+        }
+    }
 }

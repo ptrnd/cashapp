@@ -18,7 +18,6 @@ class FlowViewModel(application: Application): AndroidViewModel(application) {
     init {
         val flowDao = CashAppDatabase.getDatabase(application).flowDao()
         repository = FlowRepository(flowDao)
-//        readAllData = repository.readAllData()
     }
 
     fun readAllData() = repository.readAllData()
