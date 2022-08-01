@@ -30,7 +30,7 @@ abstract class CashAppDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     CashAppDatabase::class.java,
-                    "cashapp_database"
+                    "cashapp_database.db"
                 )
                     .addCallback(callback)
                     .build()

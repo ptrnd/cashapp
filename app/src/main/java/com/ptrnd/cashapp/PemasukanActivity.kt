@@ -94,4 +94,5 @@ class PemasukanActivity : AppCompatActivity() {
                 TextUtils.isEmpty(tipe) &&
                 TextUtils.isEmpty(keterangan))
     }
+
 }

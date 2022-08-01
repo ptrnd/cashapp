@@ -16,31 +16,50 @@
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical"
         android:gravity="center">
-        <TextView
-            android:id="@+id/tv_rangkuman"
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rangkuman Bulan Ini"
-            android:textSize="20sp"
-            android:layout_marginBottom="2dp"/>
+            android:layout_marginHorizontal="15dp"
+            app:cardElevation="8dp">
+            <LinearLayout
+                android:id="@+id/ll_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tv_rangkuman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rangkuman Bulan Ini"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="2dp"/>
 
-        <TextView
-            android:id="@+id/tv_pengeluaran"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/red"
-            android:textSize="20sp"
-            android:text="Pengeluaran: Rp. "
-            android:layout_marginBottom="2dp"/>
+                <TextView
+                    android:id="@+id/tv_pengeluaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:text="Pengeluaran: Rp. "
+                    android:layout_marginBottom="2dp"/>
 
-        <TextView
-            android:id="@+id/tv_pemasukan"
-            android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv_pemasukan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/green"
+                    android:textSize="20sp"
+                    android:text="Pemasukan: Rp. "
+                    android:layout_marginBottom="2dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Space
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/green"
-            android:textSize="20sp"
-            android:text="Pemasukan: Rp. "
-            android:layout_marginBottom="2dp"/>
+            android:layout_marginVertical="20dp"/>
 
         <GridLayout
             android:id="@+id/grid_button"
@@ -61,6 +80,7 @@
                     android:scaleType="fitCenter"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
+                    android:layout_marginHorizontal="13dp"
                     android:background="@null"
                     android:src="@drawable/income_icon"/>
                 <TextView
@@ -84,6 +104,7 @@
                     android:scaleType="fitCenter"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
+                    android:layout_marginHorizontal="13dp"
                     android:background="@null"
                     android:src="@drawable/outcome_icon"/>
                 <TextView
@@ -106,6 +127,7 @@
                     android:id="@+id/btn_detail"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
+                    android:layout_marginHorizontal="13dp"
                     android:src="@drawable/detail_icon"
                     android:background="@null"/>
                 <TextView
@@ -127,6 +149,7 @@
                     android:scaleType="fitCenter"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
+                    android:layout_marginHorizontal="13dp"
                     android:background="@null"
                     android:src="@drawable/setting_icon"/>
                 <TextView

@@ -3,11 +3,15 @@ package com.ptrnd.cashapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.ptrnd.cashapp.data.Flow
 import com.ptrnd.cashapp.databinding.ActivityHomeBinding
 import com.ptrnd.cashapp.viewmodel.FlowViewModel
+import kotlinx.android.synthetic.main.activity_pemasukan.*
+import java.text.DateFormat
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeActivity : AppCompatActivity() {
@@ -22,10 +26,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mFlowViewModel = ViewModelProvider(this).get(FlowViewModel::class.java)
-
-        binding.tvPengeluaran.setText("Rp. ")
-        uangMasuk()
-        uangKeluar()
 
         binding.btnPemasukan.setOnClickListener {
             val intent = Intent(this, PemasukanActivity::class.java)
@@ -48,10 +48,27 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        uangMasuk()
+        uangKeluar()
+    }
+
     private fun uangMasuk() {
+        val tanggalsaiki: Date = Date()
+        val bulaniki = tanggalsaiki.month
+
         mFlowViewModel.readtipeFlowVM("Pemasukan").observe(this) {
+            var filteredDate = it.filter { flow ->
+                val formatTgl = "dd-MM-yyyy"
+                val sdf = SimpleDateFormat(formatTgl, Locale.getDefault())
+                val date = sdf.parse(flow.tanggal)
+
+                date.month == bulaniki
+            }
+
             var total = 0.0f
-            for (item in it) {
+            for (item in filteredDate) {
                 total += item.pemasukan
             }
             val numberFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
@@ -62,9 +79,20 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun uangKeluar(){
+        val tanggalsaiki: Date = Date()
+        val bulaniki = tanggalsaiki.month
+
         mFlowViewModel.readtipeFlowVM("Pengeluaran").observe(this) {
+            var filteredDate = it.filter { flow ->
+                val formatTgl = "dd-MM-yyyy"
+                val sdf = SimpleDateFormat(formatTgl, Locale.getDefault())
+                val date = sdf.parse(flow.tanggal)
+
+                date.month == bulaniki
+            }
+
             var total = 0.0f
-            for (item in it) {
+            for (item in filteredDate) {
                 total += item.pengeluaran
             }
             val numberFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))

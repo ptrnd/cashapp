@@ -50,7 +50,7 @@ class SettingActivity : AppCompatActivity() {
     }
 
     private fun updateData(oldPassword: String, newPassword: String, confirmPass: String){
-        if (!cekItem(oldPassword, newPassword, confirmPass)){
+        if (cekItem(oldPassword, newPassword, confirmPass)){
             Toast.makeText(this, "Mohon diisi semua isiannya.", Toast.LENGTH_LONG).show()
         } else if (!cekPasswordSama(newPassword, confirmPass)){
             Toast.makeText(this, "Password baru dan konfirmasi password tidak sama.", Toast.LENGTH_LONG).show()
@@ -67,8 +67,8 @@ class SettingActivity : AppCompatActivity() {
     }
 
     private fun cekItem(oldPassword: String, newPassword: String, confirmPassword: String): Boolean{
-        return !(TextUtils.isEmpty(oldPassword) &&
-                TextUtils.isEmpty(newPassword) &&
+        return (TextUtils.isEmpty(oldPassword) ||
+                TextUtils.isEmpty(newPassword) ||
                 TextUtils.isEmpty(confirmPassword))
     }
 
