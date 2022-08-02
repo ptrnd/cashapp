@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.ptrnd.cashapp.data.Flow
 import com.ptrnd.cashapp.databinding.ActivityPemasukanBinding
@@ -23,6 +24,8 @@ class PemasukanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPemasukanBinding
     private lateinit var mFlowViewModel: FlowViewModel
 
+    private var current: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,6 +40,27 @@ class PemasukanActivity : AppCompatActivity() {
             calendar.set(Calendar.MONTH, month)
             calendar.set(Calendar.DAY_OF_MONTH, day)
             calFormatEdit(calendar)
+        }
+
+        binding.nominalPemasukan.doOnTextChanged {
+                s: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int ->
+            if (s.toString() != current){
+//                nominal_pemasukan.removeTextChangedListener(this)
+
+                val cleanString: String = s!!.replace("""[Rp,.]""".toRegex(), "")
+
+                val parsed = cleanString.toDouble()
+                val formatted = NumberFormat.getCurrencyInstance().format((parsed / 100))
+
+                current = formatted
+                nominal_pemasukan.setText(formatted)
+                nominal_pemasukan.setSelection(formatted.length)
+
+//                nominal_pemasukan.addTextChangedListener(this)
+            }
         }
 
         binding.btnTgl.setOnClickListener {
@@ -71,14 +95,17 @@ class PemasukanActivity : AppCompatActivity() {
 
     private fun insertData() {
         val tanggal = date_input_pemasukan.text.toString()
-        val pemasukan = nominal_pemasukan.text.toString()
-        val pengeluaran = 0
+        var pemasukan = nominal_pemasukan.text.toString()
+        var pengeluaran = 0
         val tipe = "Pemasukan"
         val keterangan = keterangan_pemasukan.text.toString()
 
-        if (cekInput(tanggal, pemasukan.toFloat(), tipe, keterangan)){
+        // menghapus rupiah untuk disimpan di database
+        pemasukan = pemasukan.replace("""[Rp,.]""".toRegex(), "")
+
+        if (cekInput(tanggal, (pemasukan.toFloat() / 100), tipe, keterangan)){
             //membuat object flow
-            val flow = Flow(0, tanggal, pemasukan.toFloat(), pengeluaran.toFloat(), tipe, keterangan)
+            val flow = Flow(0, tanggal, (pemasukan.toFloat() / 100), (pengeluaran.toFloat() / 100), tipe, keterangan)
 
             //menambah data ke database
             mFlowViewModel.addFlow(flow)

@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ptrnd.cashapp.data.Flow
 import com.ptrnd.cashapp.databinding.FlowCardBinding
 import kotlinx.android.synthetic.main.flow_card.view.*
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.DetailViewHolder>() {
 
@@ -17,12 +20,16 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.DetailViewHolder>() {
 //            val currentItem = flowList[position]
             with(binding){
                 if (keyFlow.tipe_flow == "Pemasukan"){
-                    var isiPemasukan = keyFlow.pemasukan.toString()
-                    nominalFlow.text = "[+] Rp. $isiPemasukan"
+                    var isiPemasukan = keyFlow.pemasukan
+                    val numberFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+                    val rupiah = numberFormat.format(isiPemasukan).toString()
+                    nominalFlow.text = "[ + ] $rupiah"
                     gambarFlow.setImageResource(R.drawable.income_arrow_icon)
                 } else {
-                    var isiPengeluaran = keyFlow.pengeluaran.toString()
-                    nominalFlow.text = "[-] Rp. $isiPengeluaran"
+                    var isiPengeluaran = keyFlow.pengeluaran
+                    val numberFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+                    val rupiah = numberFormat.format(isiPengeluaran).toString()
+                    nominalFlow.text = "[ - ] $rupiah"
                     gambarFlow.setImageResource(R.drawable.outcome_arrow_icon)
                 }
                 keteranganFlow.text = keyFlow.keterangan.toString()

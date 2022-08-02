@@ -6,192 +6,197 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <LinearLayout
-        android:id="@+id/ll_home"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="30dp"
-        android:padding="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical"
-        android:gravity="center">
-        <com.google.android.material.card.MaterialCardView
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            app:cardElevation="8dp">
-            <LinearLayout
-                android:id="@+id/ll_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="10dp"
-                android:orientation="vertical"
-                android:gravity="center">
-                <TextView
-                    android:id="@+id/tv_rangkuman"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rangkuman Bulan Ini"
-                    android:textSize="20sp"
-                    android:layout_marginBottom="2dp"/>
-
-                <TextView
-                    android:id="@+id/tv_pengeluaran"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/red"
-                    android:textSize="20sp"
-                    android:text="Pengeluaran: Rp. "
-                    android:layout_marginBottom="2dp"/>
-
-                <TextView
-                    android:id="@+id/tv_pemasukan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/green"
-                    android:textSize="20sp"
-                    android:text="Pemasukan: Rp. "
-                    android:layout_marginBottom="2dp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"/>
-
-        <GridLayout
-            android:id="@+id/grid_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:columnCount="2"
-            android:rowCount="2">
-
+            android:layout_marginVertical="5dp"
+            android:padding="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
+            android:gravity="center">
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                app:cardElevation="5dp">
+                android:layout_marginHorizontal="15dp"
+                app:cardElevation="8dp">
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/ll_header"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"
                     android:orientation="vertical"
-                    android:layout_margin="10dp"
                     android:gravity="center">
-                    <ImageButton
-                        android:id="@+id/btn_pemasukan"
-                        android:scaleType="fitCenter"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginHorizontal="13dp"
-                        android:background="@null"
-                        android:src="@drawable/income_icon"/>
                     <TextView
-                        android:id="@+id/textbutton_pemasukan"
+                        android:id="@+id/tv_rangkuman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:focusable="true"
-                        android:clickable="true"
-                        android:text="Pemasukan"
-                        android:textSize="18sp"/>
+                        android:text="Rangkuman Bulan Ini"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="2dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_pengeluaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red"
+                        android:textSize="20sp"
+                        android:text="Pengeluaran: Rp. 0"
+                        android:layout_marginBottom="2dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_pemasukan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green"
+                        android:textSize="20sp"
+                        android:text="Pemasukan: Rp. 0"
+                        android:layout_marginBottom="2dp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/line_graph"/>
+
+            <GridLayout
+                android:id="@+id/grid_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                app:cardElevation="5dp">
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp"
-                    android:gravity="center">
-                    <ImageButton
-                        android:id="@+id/btn_pengeluaran"
-                        android:scaleType="fitCenter"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginHorizontal="13dp"
-                        android:background="@null"
-                        android:src="@drawable/outcome_icon"/>
-                    <TextView
-                        android:id="@+id/textbutton_pengeluaran"
+                    android:layout_margin="5dp"
+                    app:cardElevation="5dp">
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:focusable="true"
-                        android:clickable="true"
-                        android:text="Pengeluaran"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        android:orientation="vertical"
+                        android:layout_margin="10dp"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/btn_pemasukan"
+                            android:scaleType="fitCenter"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginHorizontal="13dp"
+                            android:background="@null"
+                            android:src="@drawable/income_icon"/>
+                        <TextView
+                            android:id="@+id/textbutton_pemasukan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:focusable="true"
+                            android:clickable="true"
+                            android:text="Pemasukan"
+                            android:textSize="18sp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                app:cardElevation="5dp">
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp"
-                    android:gravity="center">
-                    <ImageButton
-                        android:id="@+id/btn_detail"
-                        android:scaleType="fitCenter"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginHorizontal="13dp"
-                        android:src="@drawable/detail_icon"
-                        android:background="@null"/>
-                    <TextView
+                    android:layout_margin="5dp"
+                    app:cardElevation="5dp">
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:focusable="true"
-                        android:clickable="true"
-                        android:text="Detail Cash Flow"
-                        android:textSize="15sp"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        android:orientation="vertical"
+                        android:layout_margin="10dp"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/btn_pengeluaran"
+                            android:scaleType="fitCenter"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginHorizontal="13dp"
+                            android:background="@null"
+                            android:src="@drawable/outcome_icon"/>
+                        <TextView
+                            android:id="@+id/textbutton_pengeluaran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:focusable="true"
+                            android:clickable="true"
+                            android:text="Pengeluaran"
+                            android:textSize="18sp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                app:cardElevation="5dp">
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp"
-                    android:gravity="center">
-                    <ImageButton
-                        android:id="@+id/btn_setting"
-                        android:scaleType="fitCenter"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginHorizontal="13dp"
-                        android:background="@null"
-                        android:src="@drawable/setting_icon"/>
-                    <TextView
+                    android:layout_margin="5dp"
+                    app:cardElevation="5dp">
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:focusable="true"
-                        android:clickable="true"
-                        android:text="Pengeluaran"
-                        android:textSize="15sp"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </GridLayout>
-    </LinearLayout>
+                        android:orientation="vertical"
+                        android:layout_margin="10dp"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/btn_detail"
+                            android:scaleType="fitCenter"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginHorizontal="13dp"
+                            android:src="@drawable/detail_icon"
+                            android:background="@null"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:focusable="true"
+                            android:clickable="true"
+                            android:text="Detail Cash Flow"
+                            android:textSize="15sp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    app:cardElevation="5dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="10dp"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/btn_setting"
+                            android:scaleType="fitCenter"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginHorizontal="13dp"
+                            android:background="@null"
+                            android:src="@drawable/setting_icon"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:focusable="true"
+                            android:clickable="true"
+                            android:text="Pengaturan"
+                            android:textSize="15sp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </GridLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
