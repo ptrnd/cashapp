@@ -3,14 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Program/Android/CashApp/app/src/main/res/drawable/circle.xml" value="0.209" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Program/Android/CashApp/app/src/main/res/drawable/imgcircle.xml" value="0.21" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/drawable/shape_header.xml" value="0.203" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/activity_detail_flow.xml" value="0.1" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/activity_home.xml" value="0.4" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/activity_pemasukan.xml" value="0.1" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/activity_pengeluaran.xml" value="0.1" />
-        <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/activity_setting.xml" value="0.1" />
+        <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/activity_setting.xml" value="0.264" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/content_main.xml" value="0.152" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/flow_card.xml" value="0.176" />
         <entry key="..\:/Program/Android/CashApp/app/src/main/res/layout/fragment_first.xml" value="0.4" />

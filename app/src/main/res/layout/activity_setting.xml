@@ -101,17 +101,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_margin="5dp"
+        android:layout_margin="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:orientation="horizontal">
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/profile_icon"/>
+            android:src="@drawable/pasfoto_1841720169_kotak"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:paddingLeft="15dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
