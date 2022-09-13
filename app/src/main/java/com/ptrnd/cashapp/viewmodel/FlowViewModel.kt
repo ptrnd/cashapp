@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class FlowViewModel(application: Application): AndroidViewModel(application) {
-
+//    menyediakan data flow kepada UI
     private val repository: FlowRepository
 
     //inisialisasi isi repository

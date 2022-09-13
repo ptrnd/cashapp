@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application): AndroidViewModel(application) {
-
+//    menyediakan data user kepada UI
     private val readAlldata:LiveData<List<User>>
     private val repository:UserRepository
 

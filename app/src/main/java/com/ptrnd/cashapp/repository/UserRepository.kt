@@ -5,6 +5,7 @@ import com.ptrnd.cashapp.data.User
 import com.ptrnd.cashapp.data.UserDao
 
 class UserRepository(private val userDao: UserDao) {
+//    pembuatan arsitektur class untuk mengakses data pada database
 //    val readAllData: LiveData<List<User>> = userDao.readAllData()
     fun readAllData(): LiveData<List<User>>{
         return userDao.readAllData()

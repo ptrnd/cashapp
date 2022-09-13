@@ -5,7 +5,7 @@ import androidx.room.*
 
 @Dao
 interface UserDao {
-    //class berisi perintah crud untuk mengakses tabel flow database
+    //class berisi perintah crud sql untuk mengakses tabel user database
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 

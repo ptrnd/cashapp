@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.ptrnd.cashapp.viewmodel.UserViewModel
 
+//pengaturan utama database
 @Database(entities = [Flow::class, User::class], version = 1, exportSchema = false)
 abstract class CashAppDatabase: RoomDatabase() {
     abstract fun flowDao(): FlowDao
@@ -30,7 +31,7 @@ abstract class CashAppDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     CashAppDatabase::class.java,
-                    "cashapp_database.db"
+                    "cashapp_database"
                 )
                     .addCallback(callback)
                     .build()

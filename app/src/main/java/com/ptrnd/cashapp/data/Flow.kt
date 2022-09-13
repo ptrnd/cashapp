@@ -3,6 +3,7 @@ package com.ptrnd.cashapp.data
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+// tabel database flow
 @Entity(tableName = "flow")
 data class Flow (
     //untuk pengaturan tabel flow di dalam database

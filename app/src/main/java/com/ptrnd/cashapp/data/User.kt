@@ -3,6 +3,7 @@ package com.ptrnd.cashapp.data
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+// tabel database user
 @Entity(tableName = "user")
 data class User(
     //untuk pengaturan tabel user di dalam database

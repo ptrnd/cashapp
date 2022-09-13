@@ -8,7 +8,7 @@ import androidx.room.Query
 
 @Dao
 interface FlowDao {
-//class berisi perintah crud untuk mengakses tabel flow database
+//class berisi perintah crud pada sql untuk mengakses tabel flow database
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addFlow(flow: Flow)
 
